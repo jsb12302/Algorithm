@@ -1,0 +1,16 @@
+a=int(input())
+b=int(input())
+c=int(input())
+d=int(input())
+p=int(input())
+xmoney=a*p
+
+if p<=c:
+    ymoney=b
+else:
+    ymoney=((p-c)*d)+b
+
+if xmoney>=ymoney:
+    print(ymoney)
+else:
+    print(xmoney)
