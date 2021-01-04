@@ -1,0 +1,24 @@
+a,b,c=input().split()
+a=int(a)
+b=int(b)
+c=int(c)
+
+d=input()
+d=int(d)
+
+si=d//3600
+sinamuz=d%3600
+bun=sinamuz//60
+cho=sinamuz%60
+
+outputbun=b+bun
+outputsi=a+si
+
+if (c+cho)%60>=0:
+    outputbun=b+bun+(c+cho)//60
+
+if outputbun%60>=0:
+    outputsi=a+si+outputbun//60
+
+print(outputsi%24,outputbun%60,(c+cho)%60)
+
