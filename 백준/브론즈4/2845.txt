@@ -1,0 +1,12 @@
+a, b = input().split()
+a = int(a)
+b = int(b)
+c,d,e,f,g=input().split()
+c=int(c)
+d=int(d)
+e=int(e)
+f=int(f)
+g=int(g)
+mul=a*b
+ans='%d %d %d %d %d'%(c-mul,d-mul,e-mul,f-mul,g-mul)
+print(ans)
