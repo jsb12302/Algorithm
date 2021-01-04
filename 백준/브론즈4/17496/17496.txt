@@ -1,0 +1,11 @@
+n,t,c,p=input().split()
+n=int(n)
+t=int(t)
+c=int(c)
+p=int(p)
+if n%t==0:
+    time=n//t-1
+    print(time*c*p)
+else:
+    time=n//t
+    print(time * c * p)
