@@ -1,0 +1,28 @@
+import math
+def prime(num):
+    if num!=1:
+        for i in range(2,num):
+            if num%2==0:
+                return False
+            else:
+                 return True
+
+def primefind(num):
+    for a in range(2,num):
+        for b in range(2,num):
+            if b%2==0:
+                pass
+            else:
+                if a*b==num:
+                    return a,b
+            b=b+1
+    a=a+1
+
+
+a,b=map(int,input().split())
+if a%b==0:
+    if prime(b)==True:
+        print('GOOD')
+else:
+    print('BAD',min(primefind(a)))
+

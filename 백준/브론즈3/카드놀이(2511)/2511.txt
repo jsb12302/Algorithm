@@ -1,0 +1,29 @@
+listA=list(map(int,input().split()))
+listB=list(map(int,input().split()))
+
+i=0
+scoreA=0
+scoreB=0
+d=0
+while i<10:
+    if listA[i]>listB[i]:
+        scoreA=scoreA+3
+        recent='A'
+    elif listA[i]==listB[i]:
+        scoreA = scoreA + 1
+        scoreB = scoreB + 1
+        d=d+1
+    else:
+        scoreB = scoreB + 3
+        recent='B'
+
+    i=i+1
+print(scoreA,scoreB)
+if scoreA>scoreB:
+    print('A')
+elif d == 10:
+    print('D')
+elif scoreA==scoreB:
+    print(recent)
+else:
+    print('B')
