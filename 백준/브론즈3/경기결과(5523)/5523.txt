@@ -1,0 +1,15 @@
+num=int(input())
+a=[]
+i=0
+bcnt=0
+ccnt=0
+while i<num:
+    b,c=map(int,input().split())
+    if b>c:
+        bcnt+=1
+    elif b<c:
+        ccnt+=1
+    else:
+        pass
+    i=i+1
+print(bcnt,ccnt)
