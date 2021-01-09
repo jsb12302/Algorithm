@@ -1,0 +1,18 @@
+num=int(input())
+list=[]
+
+for i in range(num):
+    a, b, c = map(int, input().split())
+    inputlist = [a, b, c]
+    inputlist.sort()
+    if a==b==c:
+        list.append('equilateral')
+    elif inputlist[2]<inputlist[1]+inputlist[0] and inputlist[2]!=inputlist[1]!=inputlist[0]:
+        list.append('scalene')
+    elif inputlist[2]<inputlist[1]+inputlist[0] and inputlist[0]==inputlist[1] or inputlist[1]==inputlist[2]:
+        list.append('isosceles')
+    else:
+        list.append('invalid!')
+for i in range(num):
+    i=i+1
+    print('Case #''%d'%i + ':' +' '+list[i-1])
