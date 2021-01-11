@@ -1,0 +1,25 @@
+k=int(input())
+n=int(input())
+bombtime=210
+time=0
+list=[]
+for i in range(n):
+    t,z=map(str,input().split())
+    list.append(t)
+    list.append(z)
+for i in range(n):
+    if list[i*2+1]=='T':
+        time+=int(list[i*2])
+        k += 1
+        if time >= bombtime:
+            k-=1
+            break
+    if list[i*2+1]=='N' or list[i*2+1]=='P':
+        time += int(list[i * 2])
+        if time >= bombtime:
+            break
+        continue
+if k%8==0:
+    print(8)
+else :
+    print(k%8)
