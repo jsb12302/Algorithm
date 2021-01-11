@@ -1,0 +1,16 @@
+import math
+list=[]
+num=int(input())
+for i in range(num):
+    h,w,n=map(int,input().split())
+    if n%h==0:
+        layer=h
+    else:
+        layer=n%h
+    roomnumber=math.ceil(n/h)
+    if len(str(roomnumber))==1:
+        roomnumber='0'+str(roomnumber)
+    output=str(layer)+str(roomnumber)
+    list.append(output)
+for i in range(num):
+    print(list[i])
