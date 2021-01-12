@@ -1,0 +1,10 @@
+n,t=map(int,input().split())
+a=list(map(int,input().split()))
+time=0
+num=0
+for i in range(n):
+    time+=a[i]
+    if time>t:
+        break
+    num+=1
+print(num)
