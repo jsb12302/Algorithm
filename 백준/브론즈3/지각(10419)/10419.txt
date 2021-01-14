@@ -1,0 +1,23 @@
+T=int(input())
+list=[]
+t=1
+a=1
+for i in range(T):
+    d=int(input())
+    if d==1:
+        list.append(0)
+    else:
+        while a<=10000:
+            if d/a>1+a:
+                pass
+            elif d/a==1+a:
+                list.append(a)
+                a=1
+                break
+            else:
+                list.append(a-1)
+                a=1
+                break
+            a+=1
+for i in range(T):
+    print(list[i])
