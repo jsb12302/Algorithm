@@ -1,0 +1,8 @@
+list=list(map(int,input().split()))
+a=list[0]
+b=list[1]
+c=list[2]
+d=list[3]
+e=str(a)+str(b)
+f=str(c)+str(d)
+print(int(e)+int(f))
