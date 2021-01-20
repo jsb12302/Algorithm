@@ -1,0 +1,15 @@
+n,k=map(int,input().split())
+a=list(map(int,input().split()))
+mul=0
+for i in range(k):
+    if a[i]==3 or a[i]==4:
+        mul+=2
+    elif a[i]==5 or a[i]==6:
+        mul+=3
+    else:
+        mul+=4
+
+if mul>=n:
+    print("YES")
+else:
+    print("NO")
