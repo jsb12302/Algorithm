@@ -1,0 +1,25 @@
+sp,sw=map(int,input().split())
+np,nw=map(int,input().split())
+up,uw=map(int,input().split())
+
+if sp*10>=5000:
+    sp=sp*10-500
+else:
+    sp=sp*10
+sga=sw*10/sp
+
+if np*10>=5000:
+    np=np*10-500
+else:
+    np=np*10
+nga=nw*10/np
+
+if up*10>=5000:
+    up=up*10-500
+else:
+    up=up*10
+uga=uw*10/up
+
+list=['S','N','U']
+a=[sga,nga,uga]
+print(list[a.index(max(a))])
