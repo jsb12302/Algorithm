@@ -1,0 +1,18 @@
+import math
+num=int(input())
+filesize=list(map(int,(input()).split()))
+clust=int(input())
+
+bigcnt=0
+smallcnt=0
+zero=0
+sum=0
+for i in range(num):
+    if clust<=filesize[i] and filesize[i]!=0:
+        tmp=math.ceil(filesize[i]/clust)
+        sum+=tmp*clust
+    elif clust>filesize[i] and filesize[i]!=0:
+        sum += clust
+print(sum)
+
+
