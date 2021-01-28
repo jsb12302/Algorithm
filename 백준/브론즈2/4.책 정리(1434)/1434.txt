@@ -1,0 +1,11 @@
+n,m=map(int,input().split())
+box=list(map(int,input().split()))
+book=list(map(int,input().split()))
+sum=0
+sum2=0
+for i in range(n):
+    sum+=box[i]
+for i in range(m):
+    sum2 +=book[i]
+
+print(sum-sum2)
