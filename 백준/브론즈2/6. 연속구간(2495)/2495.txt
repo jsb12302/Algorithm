@@ -1,0 +1,25 @@
+a=input()
+b=input()
+c=input()
+diff=0
+sum=0
+def fun(a,sum):
+    cnt = 0
+    list = []
+    for i in range(len(a) - 1):
+        if a[i] == a[i + 1]:
+            cnt += 1
+        elif a[i] != a[i + 1]:
+            list.append(cnt + 1)
+            cnt = 0
+    for k in range(len(list)):
+        sum += list[k]
+    list.append(len(a) - sum)
+    if max(list)==1:
+        print(1)
+    else:
+        print(max(list))
+
+fun(a,sum)
+fun(b,sum)
+fun(c,sum)
