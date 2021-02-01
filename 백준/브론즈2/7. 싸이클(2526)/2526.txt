@@ -1,0 +1,14 @@
+n,p=map(int,input().split())
+num=n
+i=0
+list=[]
+list.append(n)
+junglist=[]
+while i<=1000:
+    num=(num*n)%p
+    list.append(num)
+    i+=1
+for i in range(51,1000):
+    if list[50]==list[i]:
+        junglist.append(i)
+print(junglist[1]-junglist[0])
