@@ -1,0 +1,13 @@
+n,m=map(int,input().split())
+list=list(map(int,input().split()))
+a,b,c=0,1,2
+max=0
+cnt=0
+for a in range(cnt,n):
+    for b in range(a+1,n):
+        for c in range(b+1,n):
+            tmp = list[a] + list[b] + list[c]
+            if tmp <= m and tmp>=max:
+                max=tmp
+
+print(max)
