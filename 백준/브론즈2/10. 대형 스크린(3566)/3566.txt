@@ -1,0 +1,26 @@
+inhga,inhse,insizega,insizese=map(int,input().split())
+import math
+num=int(input())
+inputlist=[]
+pricelist=[]
+for i in range(num):
+    inputlist= list(map(int, input().split()))
+    hga=math.ceil(inhga/inputlist[0])
+    hse=math.ceil(inhse/inputlist[1])
+    sizega=math.ceil(insizega/inputlist[2])
+    sizese=math.ceil(insizese/inputlist[3])
+    price=inputlist[4]
+
+    pricelist.append(max(hga,sizega)*max(hse,sizese)*price)
+
+    inputlist[0],inputlist[1]=inputlist[1],inputlist[0]
+    inputlist[2], inputlist[3] = inputlist[3], inputlist[2]
+
+    hga = math.ceil(inhga / inputlist[0])
+    hse = math.ceil(inhse / inputlist[1])
+    sizega = math.ceil(insizega / inputlist[2])
+    sizese = math.ceil(insizese / inputlist[3])
+
+    pricelist.append(max(hga, sizega) * max(hse, sizese) * price)
+
+print(min(pricelist))

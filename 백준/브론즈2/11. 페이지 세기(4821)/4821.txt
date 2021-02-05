@@ -1,0 +1,39 @@
+inputcnt=0
+inputlist=[]
+while True:
+    page=int(input())
+    inputcnt+=1
+    if page==0:
+        break
+    else:
+        case=input()
+        output = []
+        intlist = []
+        fir = case.split(',')
+        pageamount = []
+        reallyoutput = []
+        alist = []
+        for i in range(len(fir)):
+            alist.append(fir[i].split('-'))
+        for a in range(len(alist)):
+            for b in range(2):
+                if len(alist[a]) == 1:
+                    output.append(alist[a][0])
+                else:
+                    output.append(alist[a][b])
+        for i in output:
+            intlist.append(int(i))
+        for i in range(0, int(len(intlist)), 2):
+            # a=intlist[i]-intlist[i-1]
+            for a in list(range(intlist[i], intlist[i + 1] + 1)):
+                pageamount.append(a)
+        # print(len(set(pageamount)))
+        for i in pageamount:
+            if i <= page:
+                reallyoutput.append(i)
+        inputlist.append(len(set(reallyoutput)))
+for i in range(inputcnt-1):
+    print(inputlist[i])
+
+
+
