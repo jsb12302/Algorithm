@@ -1,0 +1,13 @@
+e,f,c=map(int,input().split())
+
+bottle=e+f
+tmp=0
+for i in range(100):
+    mok=bottle//c
+    na=bottle%c
+    tmp+=mok
+    mok=mok+na
+    bottle=mok
+    if mok<c:
+        break
+print(tmp)
