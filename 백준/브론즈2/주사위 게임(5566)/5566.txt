@@ -1,0 +1,25 @@
+m,n=map(int,input().split())
+
+maplist=[]
+roll_list=[]
+mal=0
+tmp=0
+for i in range(m):
+    a=int(input())
+    maplist.append(a)
+for i in range(n):
+    a=int(input())
+    roll_list.append(a)
+for a in roll_list:
+    try:
+        mal=mal+a
+        mal=maplist[mal]+mal
+        #print(mal)
+        if mal>=m-1:
+            tmp+=1
+            break
+    except:
+        tmp += 1
+        break
+    tmp += 1
+print(tmp)
