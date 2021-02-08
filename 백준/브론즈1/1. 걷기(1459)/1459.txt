@@ -1,0 +1,35 @@
+x,y,block,line=map(int,input().split())
+blockdis=0
+linedis=0
+sum=x+y
+list=[]
+mini=min(x,y)
+big=max(x,y)
+blockdis=(x+y)*block
+list.append(blockdis)
+
+if (x+y)%2==1:
+    linedis = mini * line + abs(x-y-1)*line +block
+    list.append(linedis)
+    linedis=mini * line + abs(x-y)*block
+    list.append(linedis)
+if (x+y)%2==0:
+    linedis = mini * line + abs(x - y) * line
+    list.append(linedis)
+    linedis=mini * line + abs(x-y)*block
+    list.append(linedis)
+x,y=y,x
+
+if (x+y)%2==1:
+    linedis = mini * line + abs(x-y-1)*line +block
+    list.append(linedis)
+    linedis = mini * line + abs(x - y) * block
+    list.append(linedis)
+if (x+y)%2==0:
+    linedis = mini * line + abs(x - y) * line
+    list.append(linedis)
+    linedis=mini * line + abs(x-y)*block
+    list.append(linedis)
+
+
+print(min(list))
