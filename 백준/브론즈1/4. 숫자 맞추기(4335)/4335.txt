@@ -1,0 +1,19 @@
+list=[True]*11
+
+while 1:
+    num=int(input())
+    if num==0:
+        break
+    str=input()
+    if str=='too high':
+        for i in range(num,11):
+            list[i]=False
+    elif str=='too low':
+        for i in range(0,num+1):
+            list[i]=False
+    else:
+        if list[num]:
+            print('Stan may be honest')
+        else:
+            print('Stan is dishonest')
+        list=[True]*11
