@@ -1,0 +1,24 @@
+n,k=map(int,input().split())
+
+a=list(range(1,n+1))
+output_list=[]
+str_output=''
+tmp=0
+
+output_list.append(a[k-1])
+del a[k-1]
+tmp=k-1
+
+for i in range(n-1):
+    tmp+=k-1
+    tmp=tmp%len(a)
+    output_list.append(a[tmp])
+    del a[tmp]
+
+for i in output_list:
+    str_output+=str(i)+' '
+
+str_output=str_output.replace(' ',', ')
+str_output=str_output[:-2]
+
+print('<'+str_output+'>')
