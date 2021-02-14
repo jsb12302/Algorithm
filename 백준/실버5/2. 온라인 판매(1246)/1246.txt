@@ -1,0 +1,21 @@
+n,m=map(int,input().split())
+input_list=[]
+output_list=[]
+maxlen=[]
+for i in range(m):
+    a=int(input())
+    input_list.append(a)
+
+if n>=m:
+    for i in input_list:
+        output_list.append((len([x for x in input_list if x > i])+1)*i)
+    print(input_list[output_list.index(max(output_list))], max(output_list))
+elif n<m:
+    for i in input_list:
+        egg=len([x for x in input_list if x > i])+1
+        if egg>=n:
+            egg=n
+        else:
+            pass
+        output_list.append(egg*i)
+    print(input_list[output_list.index(max(output_list))], max(output_list))
