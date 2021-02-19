@@ -1,0 +1,14 @@
+import itertools
+card=[]
+outputList=[]
+n=int(input())
+k=int(input())
+
+for i in range(n):
+    a=str(input())
+    card.append(a)
+
+for i in itertools.permutations(card,k):
+    outputList.append(''.join(i))
+
+print(len(set(outputList)))
