@@ -1,0 +1,31 @@
+n=int(input())
+input_list=[]
+max_list=[]
+max_num=0
+for i in range(n):
+    a = 0
+    input_list=list(map(int,input().split()))
+
+    for a in range(a,3):
+        for b in range(a+1,5):
+            for c in range(b+1,5):
+                tmp=(input_list[a]+input_list[b]+input_list[c])%10
+                if tmp>=max_num:
+                    max_num=tmp
+    max_list.append(max_num)
+    max_num=0
+    input_list=[]
+
+tmp=0
+for i in max_list:
+    if i==max(max_list):
+        tmp+=1
+if tmp>=2:
+    max_num=max(max_list)
+    for i in range(len(max_list)-1,-1,-1):
+        if max_num==max_list[i]:
+            break
+    print(i+1)
+
+else:
+    print(max_list.index(max(max_list))+1)
