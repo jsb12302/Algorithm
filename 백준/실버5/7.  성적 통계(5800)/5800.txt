@@ -1,0 +1,18 @@
+n=int(input())
+
+InputList=[]
+GapList=[]
+clss=0
+for i in range(n):
+    clss+=1
+    InputList=list(map(int,input().split()))
+    NumOfStudent=InputList[0]
+    InputList=InputList[1:]
+    big=max(InputList)
+    small=min(InputList)
+    InputList.sort()
+    for i in range(NumOfStudent-1):
+        tmp=abs(InputList[i]-InputList[i+1])
+        GapList.append(tmp)
+    print('Class {}'.format(clss)+'\n'+'Max {}, Min {}, Largest gap {}'.format(big,small,max(GapList)))
+    GapList=[]
