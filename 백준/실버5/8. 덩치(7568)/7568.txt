@@ -1,0 +1,20 @@
+num=int(input())
+
+inputList=[]
+tmpList=[]
+outputList=[]
+for _ in range(num):
+    a,b=map(int,input().split())
+    tmpList.append(a);tmpList.append(b)
+    inputList.append(tmpList)
+    tmpList=[]
+
+for a in range(len(inputList)):
+    cnt=1
+    for b in range(len(inputList)):
+        if inputList[a][0]<inputList[b][0] and inputList[a][1] < inputList[b][1]:
+            cnt+=1
+    outputList.append(cnt)
+
+for i in outputList:
+    print(i,end=' ')
