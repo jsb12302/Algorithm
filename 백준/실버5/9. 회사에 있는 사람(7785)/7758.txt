@@ -1,0 +1,16 @@
+num=int(input())
+nameDic={}
+cnt=0
+for i in range(num):
+    name,status=map(str,input().split())
+    if name not in nameDic:
+        nameDic[name]=status
+        cnt+=1
+    else:
+        del nameDic[name]
+
+nameList=list(nameDic.keys())
+nameList.sort()
+nameList.reverse()
+for i in range(len(nameList)):
+    print(nameList[i])
