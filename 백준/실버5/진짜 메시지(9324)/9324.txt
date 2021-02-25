@@ -1,0 +1,26 @@
+num=int(input())
+alpha=[0]*26
+for i in range(num):
+    pas = True
+    s=str(input())
+    for j in range(len(s)): #한 문자열당 알파벳 검증
+        for a in range(26): #알파벳
+            if s[j]==chr(a+65):
+                alpha[a]+=1
+                if alpha[a]==3:
+                    if j==(len(s)-1): #문자열 끝
+                        pas=False
+                        break
+                    elif s[j+1]==chr(a+65):
+                        pas=True
+                        alpha[a]=-1
+                        break
+                    elif s[j+1]!=chr(a+65):
+                        pas=False
+                        break
+        if pas==False:
+            print('FAKE')
+            break
+    if pas==True:
+        print('OK')
+    alpha = [0] * 26
