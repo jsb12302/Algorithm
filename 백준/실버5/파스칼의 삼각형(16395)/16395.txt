@@ -1,0 +1,23 @@
+n,k=map(int,input().split())
+List=[1,2,1]
+tmplist=[]
+firList=[1]
+secList=[1,1]
+
+if n==1:
+    List=firList
+elif n==2:
+    List=secList
+
+for i in range(n-3):
+    for a in range(len(List)-1):
+        tmp=List[a]+List[a+1]
+        tmplist.append(tmp)
+    tmplist.insert(0,1)
+    tmplist.append(1)
+    List=tmplist
+    tmplist=[]
+
+for i in range(len(List)):
+    if i==k-1:
+        print(List[i])
