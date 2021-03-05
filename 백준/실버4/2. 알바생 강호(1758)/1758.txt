@@ -1,0 +1,14 @@
+num=int(input())
+inputList=[]
+tmp=0
+sum=0
+for i in range(num):
+    a=int(input())
+    inputList.append(a)
+inputList.sort(reverse=True)
+
+for i in inputList:
+    tmp+=1
+    if i-(tmp-1)>=0:
+        sum+=(i-(tmp-1))
+print(sum)
