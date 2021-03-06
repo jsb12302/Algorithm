@@ -1,0 +1,12 @@
+a=int(input())
+alist=list(map(int,input().split()))
+
+b=int(input())
+blist=list(map(int,input().split()))
+
+for i in blist:
+    if i in alist:
+        print(1)
+    else:
+        print(0)
+
