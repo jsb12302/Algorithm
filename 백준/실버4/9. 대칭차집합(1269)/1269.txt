@@ -1,0 +1,6 @@
+a,b=map(int,input().split())
+
+aset=set(map(int,input().split()))
+bset=set(map(int,input().split()))
+jb=len(set.intersection(aset,bset))
+print(len(aset)+len(bset)-jb*2)
