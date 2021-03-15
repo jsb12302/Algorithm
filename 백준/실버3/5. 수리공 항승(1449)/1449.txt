@@ -1,0 +1,15 @@
+import sys
+n,l=map(int,input().split())
+inputList=[]
+a=sys.stdin.readline()
+inputList=list(map(int,a.split()))
+inputList.sort()
+
+start=0
+cnt=0
+
+for a in inputList:
+    if start<a:
+        start=a+l-1
+        cnt+=1
+print(cnt)
