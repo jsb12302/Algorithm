@@ -1,0 +1,32 @@
+n=int(input())
+inputList=[]
+for i in range(n):
+    a=int(input())
+    inputList.append(a)
+
+stack=[]
+idx=0
+stack.append(1)
+i=2
+outputList=['+']
+pl=-1
+mi=0
+while True:
+    if len(stack)!=0 and stack[-1]==inputList[idx] :
+        idx += 1
+        stack.pop(-1)
+        outputList.append('-')
+        pl+=1
+    else:
+        stack.append(i)
+        outputList.append('+')
+        i+=1
+        mi+=1
+    if len(outputList)==n*2:
+        break
+
+if pl!=mi:
+    print('NO')
+else:
+    for i in outputList:
+     print(i)
