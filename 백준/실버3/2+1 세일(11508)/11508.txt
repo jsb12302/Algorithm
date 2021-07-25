@@ -1,0 +1,22 @@
+'''
+11508번
+2021-07-25
+오름차순 정렬후 뒤에서부터 2개를 선택해 더해줌
+3번째는 할인이 되기 떄문에더하지 않고 넘김
+'''
+
+n=int(input())
+milk_list=[]
+for i in range(n):
+    a=int(input())
+    milk_list.append(a)
+milk_list.sort()
+sum=0
+cnt=0
+for i in range(n-1,-1,-1):
+    cnt+=1
+    if cnt==3:
+        cnt=0
+        continue
+    sum+=milk_list[i]
+print(sum)
