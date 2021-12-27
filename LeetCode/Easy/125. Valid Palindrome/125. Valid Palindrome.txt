@@ -1,0 +1,14 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        lowerstr=[]
+        for i in s:
+            if i.isalnum():
+                lowerstr.append(i.lower())
+        while len(lowerstr)>1:
+            if lowerstr.pop(0)!=lowerstr.pop():
+                return False
+        return True
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.isPalindrome("race a car"))

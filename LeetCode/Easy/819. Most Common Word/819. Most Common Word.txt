@@ -1,0 +1,13 @@
+import collections
+import re
+
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: [str]) -> str:
+       words=[word for word in re.sub('[^\w]',' ',paragraph) #문자가 아닌것을 공백으로 치환
+           .lower().split() if word not in banned]
+       counts=collections.Counter(words)
+       return counts.most_common(1)[0][0]
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.mostCommonWord("a, a, a, a, b,b,b,c, c",["a"]))
