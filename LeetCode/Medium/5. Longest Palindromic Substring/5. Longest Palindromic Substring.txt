@@ -1,0 +1,22 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def extand(left,right):
+            while left>=0 and right<len(s) and s[left]==s[right]:
+                # 투포인터 사용
+                left-=1
+                right+=1
+            return s[left+1:right] #증감 하고 조건문 나가기 때문에 현재 양쪽 동일한 문자에 포인터가 없다
+                                   #그래서 왼쪽에 플러스 하나 해주고 오른쪽은 원래 하나 적게 나오기 때문에 그대로
+
+        if len(s)<2 or s==s[::-1]: #원래 문자열이 2보다 작거나 거꾸로 돌렸을때도 같으면 문자열 그냥 리턴
+            return s
+
+        result=''
+
+        for i in range(len(s)-1):
+            result=max(result,extand(i,i),extand(i,i+1),key=len) #문자열 길이로 비교
+        return result
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.longestPalindrome("babad"))
