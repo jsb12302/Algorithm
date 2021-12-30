@@ -1,0 +1,29 @@
+class Solution:
+    def threeSum(self, nums: [int]) -> [[int]]:
+        nums.sort() #배열 정렬
+        result=[]
+        for i in range(len(nums)-2):
+            if i > 0 and nums[i] == nums[i - 1]: #정렬 되있기 때문에, i축 중복값 제거
+                continue
+            l=i+1 #왼쪽 포인터는 증가하고
+            r=len(nums)-1 #오른쪽 포인터는 감소하면서
+
+            while l<r:
+                num=nums[i]+nums[l]+nums[r]
+                if num<0: #합이 0보다 작으면 왼쪽 포인터를 증가 시켜 num 값을 커지게 해준다
+                    l+=1
+                elif num>0:
+                    r-=1
+                else:
+                    result.append([nums[i],nums[l],nums[r]])
+                    while l<r and nums[l]==nums[l+1]: #양옆 동일값 중복 제거
+                        l+=1
+                    while l<r and nums[r]==nums[r-1]: #양옆 동일값 중복 제거
+                        r-=1
+                    l+=1
+                    r-=1
+        return result
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.threeSum([-1,0,1,2,-1,-4]))
