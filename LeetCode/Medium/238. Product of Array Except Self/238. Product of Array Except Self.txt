@@ -1,0 +1,18 @@
+class Solution:
+    def productExceptSelf(self, nums: [int]) -> [int]:
+        out=[]
+        p=1
+        for i in range(len(nums)): #새 배열에 자신을 제외하고 오른쪽으로 가면서 곱하여 넣는다.
+           out.append(p)
+           p=p*nums[i]
+
+        p=1
+        for i in range(len(nums)-1,-1,-1):
+            out[i]=out[i]*p
+            p=p*nums[i]
+        return out
+        #참고 https://jouureee.tistory.com/115
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.productExceptSelf([1,2,3,4]))

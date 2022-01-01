@@ -1,0 +1,11 @@
+class Solution:
+    def arrayPairSum(self, nums: [int]) -> int:
+        nums.sort()
+        sum=0
+        for i in range(len(nums)):
+            if i % 2 == 0: #정렬 후 앞에서 2개씩 묶어 계산하는게 최대 합
+                sum+=min(nums[i],nums[i+1])
+        return sum
+if __name__=='__main__':
+    s=Solution()
+    print(s.arrayPairSum([6,2,6,5,1,2]))
