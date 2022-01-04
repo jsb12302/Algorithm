@@ -1,0 +1,21 @@
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        l=[]
+        while list1: #연결 리스트를 리스트에 넣음
+            l.append(list1.val)
+            list1=list1.next
+        while list2:
+            l.append(list2.val)
+            list2=list2.next
+        
+        tmp=None 
+        head=None 
+        
+        for i in sorted(l): #정렬한 리스트에 하나씩 뽑앗거
+            if not tmp: #처음 tmp에 아무것도 없어서 참이 됐다가 값 하나 들어오면서 거짓 됨, 이문장 한번 실행됨
+                tmp=ListNode(i) #리스트노드로 선언
+                head=tmp #반화 리스트노드
+            else:
+                tmp.next=ListNode(i) #다음 값을 리스트 노드로 선언
+                tmp=tmp.next #현재값 가리키는 포인터 옮김
+        return head
