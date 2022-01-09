@@ -1,0 +1,31 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: [ListNode]) -> [ListNode]:
+        
+        if not head: #비었으면
+            return head #그대로 반환
+        
+        stack=[] #연결 리스트를 리스트로 변환할 리스트공간
+
+        while head is not None: #연결 리스트가 빌때까지
+            stack.append(head.val) #리스트에 연결리스트의 현재값 넣음
+            head=head.next #연결 리스트 포인터 옮김
+
+        result=ListNode() #연결 리스트 만듬
+        
+        for i,num in enumerate(stack[::-1]): 
+            if i==0: #연결 리스트 첫번째 값 세팅
+                result.val=num
+            else:
+                node=result
+                while node.next: #다음 노드가 없을때 까지
+                    node=node.next #연결 리스트 포인터 옮김
+                node.next=ListNode(num) #옮긴 포인터에 리스트 노드에 값넣어서 연결
+                      
+        return result
+            
+            
