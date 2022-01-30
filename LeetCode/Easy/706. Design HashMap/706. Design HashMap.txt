@@ -1,0 +1,24 @@
+import collections
+
+class MyHashMap:
+
+    def __init__(self):
+        self.table=collections.defaultdict()
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.table:
+            self.table[key]=value
+        else:
+            self.table[key]=value
+
+    def get(self, key: int) -> int:
+        if key in self.table:
+            return self.table[key]
+        else:
+            return -1
+
+    def remove(self, key: int) -> None:
+        if key in self.table:
+            del self.table[key]
+        else:
+            return -1
