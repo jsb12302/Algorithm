@@ -1,0 +1,11 @@
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        cnt=0
+        for i in range(len(stones)):
+            for a in range(len(jewels)):
+                if stones[i] in jewels[a]:
+                    cnt+=1
+                    break
+                else:
+                    continue
+        return cnt
