@@ -1,0 +1,13 @@
+import collections
+class Solution:
+    def topKFrequent(self, nums: [int], k: int) -> [int]:
+        s=collections.Counter(nums).most_common(k) # 상위 빈도수 높은 k개 뽑아냄
+        answer=[s[x][0] for x in range(len(s))] #for문 돌면서 튜플의 키값만 추출
+        return answer
+
+if __name__=="__main__":
+    s=Solution()
+    print(s.topKFrequent(nums = [1,1,1,2,2,3], k = 2))
+    print(s.topKFrequent([1],1))
+    print(s.topKFrequent([1,2],2))
+    print(s.topKFrequent([3,0,1,0],1))
