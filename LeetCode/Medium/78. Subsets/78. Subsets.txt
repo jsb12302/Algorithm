@@ -1,0 +1,12 @@
+import itertools
+
+
+class Solution:
+    def subsets(self, nums: [int]) -> [[int]]:
+        result=[]
+
+        for i in range(len(nums)+1):
+            comb=list(itertools.combinations(nums,i))
+            for c in comb:
+                result.append(c)
+        return result
