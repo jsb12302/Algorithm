@@ -1,0 +1,30 @@
+class Trie:
+    head={}
+
+    def insert(self, word: str) -> None:
+        curr=self.head
+
+        for char in word:
+            if char not in curr:
+                curr[char]={} #자식노드 만듬
+            curr=curr[char] #자식으로 넣기
+        curr['*']=True #마지막노드 표시
+
+    def search(self, word: str) -> bool:
+        curr=self.head
+        for char in word:
+            if char not in curr: #없으면 거짓
+                return False
+            curr=curr[char] #자식노드 이동
+        if '*' in curr: #마지막에 노드 만나면 해당 단어는 있다 판단
+            return True
+        else:
+            return False
+
+    def startsWith(self, prefix: str) -> bool:
+        curr=self.head
+        for char in prefix:
+            if char not in curr:
+                return False
+            curr=curr[char]
+        return True
