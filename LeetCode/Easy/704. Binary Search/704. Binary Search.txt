@@ -1,0 +1,20 @@
+class Solution:
+    def search(self, nums: [int], target: int) -> int:
+        left=0
+        right=len(nums)-1 #mid+1 할때 범위 밖으로 벗어 날수 있기 때문에
+
+        while left<=right:
+            mid=(left+right)//2
+
+            if nums[mid]<target:
+                left=mid+1
+            elif nums[mid] > target:
+                right=mid-1
+            else:
+                return mid
+        return -1
+
+if __name__=="__main__":
+    s=Solution()
+    print(s.search(nums = [-1,0,3,5,9,12], target = 9))
+    print(s.search(nums = [-1,0,3,5,9,12], target = 2))
