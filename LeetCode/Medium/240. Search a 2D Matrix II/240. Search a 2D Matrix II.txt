@@ -1,0 +1,7 @@
+class Solution:
+    def searchMatrix(self, matrix: [[int]], target: int) -> bool:
+        for i in matrix:
+            if target<=max(i):
+                if target in i:
+                    return True
+        return False
