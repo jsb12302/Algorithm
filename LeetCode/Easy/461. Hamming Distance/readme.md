@@ -8,7 +8,7 @@ Given two integers x and y, return the Hamming distance between them.
 
 Input: x = 1, y = 4  
 Output: 2  
-Explanation: 
+Explanation:  
 1   (0 0 0 1)  
 4   (0 1 0 0)  
        ↑   ↑
