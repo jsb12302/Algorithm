@@ -1,0 +1,11 @@
+class Solution:
+    def reconstructQueue(self, people: [[int]]) -> [[int]]:
+        result=[]
+        people.sort(key=lambda x:(-x[0],x[1])) #키는 내림차순, 앞사람 수는 오름차순 정렬
+        for p in people:
+            result.insert(p[1],p) #두번째 인덱스가 앞사람의 수니까 그것을 인덱스로 사용
+        return result
+
+if __name__=="__main__":
+    s=Solution()
+    print(s.reconstructQueue(people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]))
