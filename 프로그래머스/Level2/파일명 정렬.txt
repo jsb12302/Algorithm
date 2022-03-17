@@ -1,0 +1,54 @@
+'''
+Author : Jeong SoonBum
+DATE : 2022-03-18
+Title : 파일명 정렬
+Content :
+    버전 번호 외에도 숫자가 포함된 파일 목록은 여러 면에서 관리하기 불편했다. 예컨대 파일 목록이 ["img12.png", "img10.png", "img2.png", "img1.png"]일 경우, 일반적인 정렬은 ["img1.png", "img10.png", "img12.png", "img2.png"] 순이 되지만, 숫자 순으로 정렬된 ["img1.png", "img2.png", "img10.png", img12.png"] 순이 훨씬 자연스럽다.
+
+    무지는 단순한 문자 코드 순이 아닌, 파일명에 포함된 숫자를 반영한 정렬 기능을 저장소 관리 프로그램에 구현하기로 했다.
+
+    소스 파일 저장소에 저장된 파일명은 100 글자 이내로, 영문 대소문자, 숫자, 공백(" "), 마침표("."), 빼기 부호("-")만으로 이루어져 있다. 파일명은 영문자로 시작하며, 숫자를 하나 이상 포함하고 있다.
+
+    파일명은 크게 HEAD, NUMBER, TAIL의 세 부분으로 구성된다.
+
+    HEAD는 숫자가 아닌 문자로 이루어져 있으며, 최소한 한 글자 이상이다.
+    NUMBER는 한 글자에서 최대 다섯 글자 사이의 연속된 숫자로 이루어져 있으며, 앞쪽에 0이 올 수 있다. 0부터 99999 사이의 숫자로, 00000이나 0101 등도 가능하다.
+    TAIL은 그 나머지 부분으로, 여기에는 숫자가 다시 나타날 수도 있으며, 아무 글자도 없을 수 있다.
+
+    입력 형식
+    입력으로 배열 files가 주어진다.
+
+    files는 1000 개 이하의 파일명을 포함하는 문자열 배열이다.
+    각 파일명은 100 글자 이하 길이로, 영문 대소문자, 숫자, 공백(" "), 마침표("."), 빼기 부호("-")만으로 이루어져 있다. 파일명은 영문자로 시작하며, 숫자를 하나 이상 포함하고 있다.
+    중복된 파일명은 없으나, 대소문자나 숫자 앞부분의 0 차이가 있는 경우는 함께 주어질 수 있다. (muzi1.txt, MUZI1.txt, muzi001.txt, muzi1.TXT는 함께 입력으로 주어질 수 있다.)
+
+Input :
+    입력: ["img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"]
+    출력: ["img1.png", "IMG01.GIF", "img02.png", "img2.JPG", "img10.png", "img12.png"]
+
+    입력: ["F-5 Freedom Fighter", "B-50 Superfortress", "A-10 Thunderbolt II", "F-14 Tomcat"]
+    출력: ["A-10 Thunderbolt II", "B-50 Superfortress", "F-5 Freedom Fighter", "F-14 Tomcat"]
+'''
+
+def solution(files):
+    tmp=[]
+    head,number,tail='','',''
+
+    for file in files:
+        for i in range(len(file)):
+            if file[i].isdigit():
+                head=file[:i] #숫자 앞까지를 head
+                number=file[i:] #나머지를 일단 number로 정함
+
+                for j in range(len(number)):
+                    if not number[j].isdigit(): #number중 한 값이 숫자 아닐때까지 멈춤
+                        tail = number[j:] #number먼저 정하면 tail값이 바뀌기때문에 tail먼저 인덱싱
+                        number=number[:j]
+                        break
+
+                tmp.append([head,number,tail])
+                head,number,tail='','',''
+                break
+
+    tmp=sorted(tmp, key=lambda x:(x[0].lower(),int(x[1]))) #head, number 순으로 정렬, number는 앞에 0때문에 int로 바꿔줌
+    return [''.join(i) for i in tmp]
