@@ -69,21 +69,21 @@ def isCorrect(str):
 def rec(p):
     result = ""
     if not len(p):
-        return ""  # 1
+        return ""
 
-    u, v = strSplit(p)  # 2
+    u, v = strSplit(p)
 
-    if isCorrect(u):  # 3
-        result = u + rec(v)  # 3-1
-    else:  # 4
-        tmp = "("  # 4-1
-        tmp += rec(v)  # 4-2
-        tmp += ")"  # 4-3
-        u = u[1:-1]  # 4-4
+    if isCorrect(u):
+        result = u + rec(v)
+    else:
+        tmp = "("
+        tmp += rec(v)
+        tmp += ")"
+        u = u[1:-1]
         for c in u:
             if c == '(':
                 tmp += ')'
             else:
                 tmp += '('
         result += tmp
-    return result  # 4-5
+    return result
