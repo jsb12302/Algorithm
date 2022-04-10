@@ -1,0 +1,50 @@
+'''
+Author : Jeong SoonBum
+DATE : 2022-04-10
+Title : 괄호 회전하기
+Content :
+    다음 규칙을 지키는 문자열을 올바른 괄호 문자열이라고 정의합니다.
+
+    (), [], {} 는 모두 올바른 괄호 문자열입니다.
+    만약 A가 올바른 괄호 문자열이라면, (A), [A], {A} 도 올바른 괄호 문자열입니다.
+    예를 들어, [] 가 올바른 괄호 문자열이므로, ([]) 도 올바른 괄호 문자열입니다.
+    만약 A, B가 올바른 괄호 문자열이라면, AB 도 올바른 괄호 문자열입니다.
+    예를 들어, {} 와 ([]) 가 올바른 괄호 문자열이므로, {}([]) 도 올바른 괄호 문자열입니다.
+    대괄호, 중괄호, 그리고 소괄호로 이루어진 문자열 s가 매개변수로 주어집니다.
+    이 s를 왼쪽으로 x (0 ≤ x < (s의 길이)) 칸만큼 회전시켰을 때 s가 올바른 괄호 문자열이 되게 하는 x의 개수를 return 하도록 solution 함수를 완성해주세요.
+
+    입출력 예
+    s	    result
+    "[](){}"	3
+    "}]()[{"	2
+    "[)(]"	    0
+    "}}}"	    0
+'''
+def solution(s):
+
+    bracket_dic={']':'[',')':'(','}':'{'}
+    cnt=0
+    for a in range(len(s)): #문자열s 길이만큼 반복
+        stack = [] #괄호 비교 스택
+        for i in s:
+            if stack: #스택 차있을 때
+                try:
+                    if stack[-1] == bracket_dic[i]: #스택의 마지막 값과 dic에 대응하는 괄호 비교
+                        stack.pop() #대응되면 올바른 괄호 이기 떄문에 스택 값 삭제
+                    else:
+                        stack.append(i)
+                except: #dic 키 예외 처리
+                    stack.append(i)
+            else:
+                stack.append(i)
+                
+        if not stack: #스택이 비었다면 올바른 괄호
+            cnt+=1
+        s = rollStr(s) #문자열 회전하여 반환
+    return cnt
+
+def rollStr(str): #문자열 회전 함수
+    front=str[:1]
+    back=str[1:]
+    roll=back+front
+    return roll
