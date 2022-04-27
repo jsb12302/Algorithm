@@ -19,22 +19,22 @@ Content :
     구명보트의 무게 제한은 항상 사람들의 몸무게 중 최댓값보다 크게 주어지므로 사람들을 구출할 수 없는 경우는 없습니다.
 
     입출력 예
-    people	            limit	return
-    [70, 50, 80, 50]	100	        3
+    people	    limit       return
+    [70, 50, 80, 50]	    100	        3
     [70, 80, 50]	    100	        3
 '''
 def solution(people, limit):
 
-    people.sort()
-    cnt=0
+    people.sort() #사람 몸무게 순으로 오름차순 정렬
+    cnt=0 
     i=0
     j=len(people)-1
 
-    while i<=j:
-        if people[i]+people[j]<=limit:
-            i+=1
+    while i<=j: #리스트를 직접 조작하면 효율성에서 실패하기 때문에 인덱스만 조작
+        if people[i]+people[j]<=limit: #몸무게 가장 많이 나가는 사람과 적게 나가는 사람을 더해서 보트보다 가벼우면
+            i+=1 #두명다 태운다
             j-=1
-        else:
-            j-=1
+        else: #보트 무게보다 많이 나가면
+            j-=1 #몸무게 제일 많이 나가는 사람만 태운다.
         cnt+=1
     return cnt
