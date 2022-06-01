@@ -1,0 +1,35 @@
+n,m,v=map(int,input().split())
+graph=[[] for i in range(n+1)]
+visited=[False] * (n+1)
+
+for _ in range(m):
+    a,b=map(int,input().split())
+    graph[a].append(b) #양방향
+    graph[b].append(a) #양방향
+
+for i in range(len(graph)):
+    graph[i].sort() #작은것 부터 방문하게 정렬
+
+def dfs(graph,v,visited):
+    visited[v]=True
+    print(v,end=' ')
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph,i,visited)
+
+from collections import deque
+def bfs(grapth,start,visited):
+    queue=deque([start])
+    visited[start]=True
+    while queue:
+        v=queue.popleft()
+        print(v,end=' ')
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i]=True
+
+dfs(graph,v,visited)
+visited=[False] * (n+1)
+print()
+bfs(graph,v,visited)
