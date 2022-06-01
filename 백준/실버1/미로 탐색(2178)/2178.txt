@@ -1,0 +1,27 @@
+from collections import deque
+n,m=map(int,input().split())
+maze=[]
+for i in range(n):
+    maze.append(list(map(int,' '.join(input()).split())))
+
+visited=[[0] * m for _ in range(n)]
+print(visited)
+moveX=[1,-1,0,0]
+moveY=[0,0,1,-1]
+visited[0][0]=1
+q=deque([(0,0)])
+
+while q:
+    x,y=q.popleft()
+
+    if x==n-1 and y==m-1: #도착하면
+        print(visited[x][y])
+        break
+
+    for i in range(4): #상하좌우 돌면서
+        nx=x+moveX[i] #현재 위치에서 상하
+        ny=y+moveY[i] #현재 위치에서 좌우
+        if 0 <= nx < n and 0 <= ny < m: #범위 안 벗어나면
+            if visited[nx][ny] == 0 and maze[nx][ny] == 1: #방문과 길이 있는지 비교
+                visited[nx][ny]=visited[x][y]+1 #방문한 번째 수
+                q.append((nx,ny)) #새로운길 업데이트
